@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="android.nazim.app.libraryreminder.AddTvShowActivity">
+
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/blue"
+        android:minHeight="?android:attr/actionBarSize" />
+
+    <EditText
+        android:id="@+id/tv_show_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="20dp"
+        android:hint="Nom de la serie"
+        android:textColor="@color/blue"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
+
+
+    <EditText
+        android:id="@+id/tv_show_season"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_show_name"
+        android:layout_marginTop="20dp"
+        android:inputType="numberSigned"
+        android:textColor="@color/blue"
+        android:hint="Saison en cours"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
+
+    <EditText
+        android:id="@+id/tv_show_episode"
+        android:inputType="numberSigned"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_show_season"
+        android:textColor="@color/blue"
+        android:layout_marginTop="20dp"
+        android:hint="Episode"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
+
+    <Button
+        android:id="@+id/tv_show_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_show_episode"
+        android:layout_marginTop="20dp"
+        android:background="@color/blue"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Sauvegarder"
+        android:textSize="20sp" />
+
+</RelativeLayout>
