@@ -8,12 +8,8 @@
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        app:cardCornerRadius="2dp"
+        app:cardCornerRadius="5dp"
         app:cardElevation="2dp"
-        android:layout_marginBottom="@dimen/cardMarginVertical"
-        android:layout_marginLeft="@dimen/cardMarginHorizontal"
-        android:layout_marginRight="@dimen/cardMarginHorizontal"
-        android:layout_marginTop="@dimen/cardMarginVertical"
         app:cardPreventCornerOverlap="false"
         app:contentPadding="0dp">
 
@@ -22,33 +18,33 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/txtEmail"
+                android:id="@+id/showName"
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
-                android:text="contact det"
+                android:text="Dardevil"
+                android:layout_alignParentTop="true"
                 android:gravity="center_vertical"
-                android:textColor="@android:color/white"
                 android:textSize="14dp"/>
 
             <TextView
-                android:id="@+id/txtName"
+                android:id="@+id/showSeason"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Name"
                 android:gravity="center_vertical"
                 android:textSize="10dp"
-                android:layout_below="@id/txtEmail"
+                android:layout_below="@id/showName"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="5dp"/>
 
             <TextView
-                android:id="@+id/txtSurname"
+                android:id="@+id/showEpisode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Surname"
                 android:gravity="center_vertical"
                 android:textSize="10dp"
-                android:layout_below="@id/txtName"
+                android:layout_below="@id/showSeason"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="5dp"/>
         </RelativeLayout>

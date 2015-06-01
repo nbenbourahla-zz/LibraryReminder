@@ -1,6 +1,9 @@
-package android.nazim.app.libraryreminder;
+package android.nazim.app.libraryreminder.fragment;
 
 import android.content.Intent;
+import android.nazim.app.libraryreminder.R;
+import android.nazim.app.libraryreminder.activity.AddTvShowActivity;
+import android.nazim.app.libraryreminder.adapter.TvShowAdapter;
 import android.nazim.app.libraryreminder.model.TvShow;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,8 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.activeandroid.query.Select;
-import com.github.florent37.materialviewpager.MaterialViewPagerHelper;
-import com.github.florent37.materialviewpager.adapter.RecyclerViewMaterialAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,12 +46,20 @@ public class TvShowFragmentList extends Fragment {
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);
 
-        mContentItems.addAll(getAll());
 
-        mAdapter = new RecyclerViewMaterialAdapter(new TestRecyclerViewAdapter(mContentItems));
+        for (int i = 0; i < 20; ++i) {
+            TvShow show = new TvShow();
+            show.episode = i + 1;
+            show.season = 1;
+            show.name = "Serie N°" + (i + 1);
+            mContentItems.add(show);
+        }
+        //mContentItems.addAll(getAll());
+
+        mAdapter = new TvShowAdapter(mContentItems);
         mRecyclerView.setAdapter(mAdapter);
 
-        MaterialViewPagerHelper.registerRecyclerView(getActivity(), mRecyclerView, null);
+        //MaterialViewPagerHelper.registerRecyclerView(getActivity(), mRecyclerView, null);
 
         view.findViewById(R.id.pink_icon).setOnClickListener(new View.OnClickListener() {
             @Override

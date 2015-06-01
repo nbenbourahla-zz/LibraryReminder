@@ -1,5 +1,6 @@
-package android.nazim.app.libraryreminder;
+package android.nazim.app.libraryreminder.activity;
 
+import android.nazim.app.libraryreminder.R;
 import android.nazim.app.libraryreminder.model.TvShow;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;

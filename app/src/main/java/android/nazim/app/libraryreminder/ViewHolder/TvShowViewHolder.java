@@ -16,9 +16,9 @@ public class TvShowViewHolder extends RecyclerView.ViewHolder {
 
     public TvShowViewHolder(View v) {
         super(v);
-        name = (TextView) v.findViewById(R.id.txtName);
-        season = (TextView) v.findViewById(R.id.txtSurname);
-        episode = (TextView) v.findViewById(R.id.txtEmail);
+        name = (TextView) v.findViewById(R.id.showName);
+        season = (TextView) v.findViewById(R.id.showSeason);
+        episode = (TextView) v.findViewById(R.id.showEpisode);
     }
 
     public TextView getName() {

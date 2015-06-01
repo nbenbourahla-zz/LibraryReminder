@@ -1,12 +1,8 @@
-package android.nazim.app.libraryreminder;
+package android.nazim.app.libraryreminder.activity;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.content.res.Configuration;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
+import android.nazim.app.libraryreminder.R;
+import android.nazim.app.libraryreminder.fragment.TvShowFragmentList;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -18,12 +14,6 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-
-import com.github.florent37.materialviewpager.MaterialViewPager;
 
 public class HomeActivity extends ActionBarActivity {
 
