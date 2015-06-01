@@ -33,18 +33,11 @@ public class HomeActivity extends ActionBarActivity {
     private ViewPager mViewPager;
     private ActionBarDrawerToggle mDrawerToggle;
     private Toolbar toolbar;
-    private View headerLogo;
-    private ImageView headerLogoContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-        setTitle("");
-
-        headerLogo = findViewById(R.id.headerLogo);
-        headerLogoContent = (ImageView) findViewById(R.id.headerLogoContent);
 
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
 
@@ -68,54 +61,11 @@ public class HomeActivity extends ActionBarActivity {
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawer, 0, 0);
         mDrawer.setDrawerListener(mDrawerToggle);
 
-
         mViewPager.setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
-
-            int oldPosition = -1;
 
             @Override
             public Fragment getItem(int position) {
-                //switch (position) {
-                //case 0:
-                //    return RecyclerViewFragment.newInstance();
-//                    case 1:
                 return TvShowFragmentList.newInstance();
-                //case 2:
-                //    return WebViewFragment.newInstance();
-                //                  default:
-                //                    return ScrollFragment.newInstance();
-                //}
-            }
-
-            @Override
-            public void setPrimaryItem(ViewGroup container, int position, Object object) {
-                super.setPrimaryItem(container, position, object);
-
-                //only if position changed
-                if (position == oldPosition)
-                    return;
-                oldPosition = position;
-
-                int color = 0;
-                Drawable drawable = null;
-                switch (position) {
-                    case 0:
-                        drawable = getResources().getDrawable(R.drawable.tv_show);
-                        color = getResources().getColor(R.color.blue);
-                        break;
-                    case 1:
-                        drawable = getResources().getDrawable(R.drawable.movie);
-                        color = getResources().getColor(R.color.green);
-                        break;
-                    case 2:
-                        drawable = getResources().getDrawable(R.drawable.book);
-                        color = getResources().getColor(R.color.cyan);
-                        break;
-                }
-
-                final int fadeDuration = 400;
-                //toggleLogo(drawable, color, fadeDuration);
-                //mViewPager.setColor(color, fadeDuration);
             }
 
             @Override
@@ -136,13 +86,9 @@ public class HomeActivity extends ActionBarActivity {
                 return "";
             }
         });
-        //mViewPager.getViewPager().setOffscreenPageLimit(mViewPager.getViewPager().getAdapter().getCount());
-        //mViewPager.setViewPager(mViewPager.getViewPager());
-
         mViewPager.setCurrentItem(0);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-//indique au tablayout quel est le viewpager à écouter
         tabLayout.setupWithViewPager(mViewPager);
     }
 
