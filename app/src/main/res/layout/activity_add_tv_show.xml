@@ -1,15 +1,14 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="android.nazim.app.libraryreminder.activity.AddTvShowActivity">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:background="@color/blue"
         android:minHeight="?android:attr/actionBarSize" />
 
     <EditText
@@ -22,7 +21,6 @@
         android:textColor="@color/blue"
         android:paddingLeft="10dp"
         android:paddingRight="10dp" />
-
 
     <EditText
         android:id="@+id/tv_show_season"
@@ -60,4 +58,4 @@
         android:text="Sauvegarder"
         android:textSize="20sp" />
 
-</RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>
