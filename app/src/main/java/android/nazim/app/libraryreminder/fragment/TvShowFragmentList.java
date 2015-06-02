@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.activeandroid.Model;
 import com.activeandroid.query.Select;
 
 import java.util.ArrayList;
@@ -22,58 +23,39 @@ import java.util.List;
 /**
  * Created by nazim on 29/05/15.
  */
-public class TvShowFragmentList extends Fragment {
+public class TvShowFragmentList extends AbstractViewPagerFragment {
 
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-
-    private List<TvShow> mContentItems = new ArrayList<>();
 
     public static TvShowFragmentList newInstance() {
         return new TvShowFragmentList();
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_tv_show, container, false);
+    public void initAdapter() {
+        ArrayList<TvShow> dataList = new ArrayList<>();
+        for (TvShow show : (List<TvShow>) getAll()) {
+            dataList.add(show);
+        }
+        mAdapter = new TvShowAdapter(dataList);
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        mRecyclerView.setLayoutManager(layoutManager);
-        mRecyclerView.setHasFixedSize(true);
+    public void goToAddActivity() {
+        Intent i = new Intent(getActivity(), AddTvShowActivity.class);
+        startActivity(i);
+    }
 
-
+    @Override
+    public List<? extends Model> getAll() {
+        List<TvShow> contents = new ArrayList<>();
         for (int i = 0; i < 20; ++i) {
             TvShow show = new TvShow();
             show.episode = i + 1;
             show.season = 1;
             show.name = "Serie N°" + (i + 1);
-            mContentItems.add(show);
+            contents.add(show);
         }
-        //mContentItems.addAll(getAll());
-
-        mAdapter = new TvShowAdapter(mContentItems);
-        mRecyclerView.setAdapter(mAdapter);
-
-        //MaterialViewPagerHelper.registerRecyclerView(getActivity(), mRecyclerView, null);
-
-        view.findViewById(R.id.pink_icon).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getActivity(), AddTvShowActivity.class);
-                startActivity(i);
-            }
-        });
-    }
-
-    public static List<TvShow> getAll() {
-        return new Select()
-                .from(TvShow.class)
-                .orderBy("Name ASC")
-                .execute();
+        return contents;
     }
 }

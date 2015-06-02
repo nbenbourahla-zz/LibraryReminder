@@ -2,7 +2,10 @@ package android.nazim.app.libraryreminder.activity;
 
 import android.content.res.Configuration;
 import android.nazim.app.libraryreminder.R;
+import android.nazim.app.libraryreminder.fragment.BookFragmentList;
+import android.nazim.app.libraryreminder.fragment.MovieFragmentList;
 import android.nazim.app.libraryreminder.fragment.TvShowFragmentList;
+import android.nazim.app.libraryreminder.model.Movie;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -55,7 +58,15 @@ public class HomeActivity extends ActionBarActivity {
 
             @Override
             public Fragment getItem(int position) {
-                return TvShowFragmentList.newInstance();
+                switch (position) {
+                    case 0 :
+                        return TvShowFragmentList.newInstance();
+                    case 1 :
+                        return MovieFragmentList.newInstance();
+                    case 2 :
+                        return BookFragmentList.newInstance();
+                }
+                return null;
             }
 
             @Override
